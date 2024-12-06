@@ -1,24 +1,26 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building...'
-                sh 'mvn clean install'
-            }
+  agent any
+  stages {
+    stage('Build') {
+      steps {
+        script {
+          sh 'dotnet build YourApiProjectName.sln'
         }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-                 sh 'mvn test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                 sh 'scp target/myapp.war user@server:/path/to/deploy'
-            }
-        }
+      }
     }
+    stage('Docker Build') {
+      steps {
+        script {
+          sh 'docker build -t your-api-image-name .'
+        }
+      }
+    }
+    stage('Deploy to Staging') {
+      steps {
+        script {
+          sh 'docker-compose up --build -d'
+        }
+      }
+    }
+  }
 }
