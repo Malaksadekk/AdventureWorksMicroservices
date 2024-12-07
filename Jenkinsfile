@@ -1,6 +1,20 @@
 pipeline {
   agent any
   stages {
+    stage('Clean') {
+      steps {
+        script {
+          bat 'dotnet clean SCM.sln'
+        }
+      }
+    }
+    stage('Restore') {
+      steps {
+        script {
+          bat 'dotnet restore SCM.sln'
+        }
+      }
+    }
     stage('Build') {
       steps {
         script {
@@ -11,7 +25,7 @@ pipeline {
     stage('Docker Build') {
       steps {
         script {
-          bat 'docker build -t scm-api .'
+          bat 'docker build scm-api .'
         }
       }
     }
