@@ -1,10 +1,17 @@
 pipeline {
   agent any
   stages {
-    stage('List Files') {
+    stage('Checkout') {
       steps {
         script {
-          bat 'dir C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Malak\\SCM'
+          checkout scm
+        }
+      }
+    }
+    stage('List All Files After Checkout') {
+      steps {
+        script {
+          bat 'dir C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Malak /s'
         }
       }
     }
@@ -32,7 +39,7 @@ pipeline {
     stage('Docker Build') {
       steps {
         script {
-          bat 'docker build -t scm-api.'
+          bat 'docker build -t scm-api .'
         }
       }
     }
