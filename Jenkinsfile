@@ -11,7 +11,7 @@ pipeline {
     stage('Docker Build') {
       steps {
         script {
-          sh 'docker build -t myapi .'
+          sh 'docker build -t scm-api .'
         }
       }
     }
