@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SCM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ee759118feb2bb7981c8c3bb2fd8631169dbc51")]
 [assembly: System.Reflection.AssemblyProductAttribute("SCM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SCM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

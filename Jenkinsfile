@@ -4,14 +4,14 @@ pipeline {
     stage('Build') {
       steps {
         script {
-          sh 'dotnet build YourApiProjectName.sln'
+          sh 'dotnet build SCM.sln'
         }
       }
     }
     stage('Docker Build') {
       steps {
         script {
-          sh 'docker build -t your-api-image-name .'
+          sh 'docker build -t myapi .'
         }
       }
     }
